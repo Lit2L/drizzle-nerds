@@ -233,7 +233,7 @@ export const ordersRelations = relations(orders, ({ one, many }) => ({
 
 export const orderProduct = pgTable('orderProduct', {
 	id: serial('id').primaryKey(),
-	quantity: integer('quantity').default(0),
+	quantity: integer('quantity').notNull(),
 	productVariantID: serial('productVariantID')
 		.notNull()
 		.references(() => productVariants.id, { onDelete: 'cascade' }),
